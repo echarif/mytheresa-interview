@@ -44,7 +44,7 @@ public class ProductControllersTest {
     }
 
     @Test
-    void search_without_price_filter_then_get_all_products() throws Exception {
+    void get_all_products_when_search_without_price_filter() throws Exception {
         mockMvc.perform(get("/v1/products")
                 .contentType(MediaType.APPLICATION_JSON)
                 .param("category", "boots"))
@@ -54,7 +54,7 @@ public class ProductControllersTest {
     }
 
     @Test
-    void search_with_price_filter_then_get_products_match_price_filter() throws Exception {
+    void get_products_match_filter_when_search_with_price_filter() throws Exception {
         mockMvc.perform(get("/v1/products")
                 .contentType(MediaType.APPLICATION_JSON)
                 .param("category", "boots")
@@ -65,7 +65,7 @@ public class ProductControllersTest {
     }
 
     @Test
-    void search_with_boots_category_discount() throws Exception {
+    void get_products_with_category_discount_when_search_with_boots_category() throws Exception {
         mockMvc.perform(get("/v1/products")
                 .contentType(MediaType.APPLICATION_JSON)
                 .param("category", "boots")
@@ -77,7 +77,7 @@ public class ProductControllersTest {
     }
 
     @Test
-    void search_with_sku000003_product_discount() throws Exception {
+    void get_products_with_sku_discount_when_search_with_sku000003_product() throws Exception {
         mockMvc.perform(get("/v1/products")
                 .contentType(MediaType.APPLICATION_JSON)
                 .param("category", "sandals")
@@ -89,7 +89,7 @@ public class ProductControllersTest {
     }
 
     @Test
-    void search_without_discount() throws Exception {
+    void get_products_without_discount_when_no_discount_matches() throws Exception {
         mockMvc.perform(get("/v1/products")
                 .contentType(MediaType.APPLICATION_JSON)
                 .param("category", "sneakers")
